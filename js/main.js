@@ -2,6 +2,9 @@
 
 document.querySelector ('.js-list');
 const listHTML = document.querySelector ('.js-list');
+const addButton = document.querySelector ('.js-btn-add');
+const formSection = document.querySelector ('.js-new-form');
+const showButton = document.querySelector ('.js-btn-show');
 
 /* Agregar el código del li desde HTMl 
 Repetir este proceso por cada gatito */
@@ -44,17 +47,46 @@ const kittenThree = `<li class="card">
 </p>
 </li>`;
 
+
 listHTML.innerHTML = kittenOne + kittenTwo + kittenThree;
 
-const formSection = document.querySelector ('.js-new-form');
-
-
-const showButton = document.querySelector ('.js-btn-show');
-console.log (showButton)
+//console.log (showButton)//
 showButton.addEventListener ('click' , (event) => {
-   formSection.classList.remove ('collapsed');
-   const inputDesc = document.querySelector('.js-input-desc');
+   formSection.classList.toggle ('collapsed');
+});
+
+const inputDesc = document.querySelector('.js-input-desc');
 const inputPhoto = document.querySelector('.js-input-photo');
 const inputName = document.querySelector('.js-input-name');
+const inputBreed = document.querySelector('.js-input-breed');
 const labelMessageError = document.querySelector('.js-label-error');
+
+/* Código HTML de un gatito */
+
+
+
+addButton.addEventListener ('click' , (event) => {
+  event.preventDefault();
+  const valueDesc = inputDesc.value;
+  const valuePhoto = inputPhoto.value;
+  const valueName = inputName.value;
+  const valueBreed = inputBreed.value;  
+  const newKittenHTML = `<li class="card">
+  <img
+  class="card_img"
+  src="` + valuePhoto + `"
+  alt="gatito"
+  />
+  <h3 class="card_title">` + valueName + `</h3>
+  <h4 class="card_race">` + valueBreed + `</h4>
+  <p class="card_description">
+    ` + valueDesc + `
+  </p>
+  </li>`;
+  listHTML.innerHTML += newKittenHTML;
+
+  console.log(addButton)
+
+// Completa el código para generar el nuevo <li> con la información del nuevo gatito
+
 });
