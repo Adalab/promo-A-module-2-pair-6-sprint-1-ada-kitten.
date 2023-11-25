@@ -5,7 +5,10 @@ const listHTML = document.querySelector ('.js-list');
 const addButton = document.querySelector ('.js-btn-add');
 const formSection = document.querySelector ('.js-new-form');
 const showButton = document.querySelector ('.js-btn-show');
-
+const form = document.querySelector ('.js-form')
+const cancelBtn = document.querySelector ('.js-btn-cancel')
+const searchBtn = document.querySelector ('.js_btn_search')
+const descripInput = document.querySelector ('.js_in_search_desc')
 /* Agregar el código del li desde HTMl 
 Repetir este proceso por cada gatito */
 const kittenOne = `<li class="card">
@@ -84,9 +87,13 @@ addButton.addEventListener ('click' , (event) => {
   </p>
   </li>`;
   listHTML.innerHTML += newKittenHTML;
+  form.reset ();
+  formSection.classList.add ('collapsed');
 
-  console.log(addButton)
-
-// Completa el código para generar el nuevo <li> con la información del nuevo gatito
-
+  // Completa el código para generar el nuevo <li> con la información del nuevo gatito
 });
+
+cancelBtn.addEventListener ('click' , (event) => {
+  form.reset ();
+  formSection.classList.add ('collapsed');
+ });
